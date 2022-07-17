@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bài 8 Pseudo class and elements</title>
+    <link
+      rel="stylesheet"
+      href="../themify-icons-font/themify-icons/themify-icons.css"
+    />
+  </head>
+    <style>
+      :root {
+        --mauchu: yellow;
+      }
+      #main {
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .tt1 h1:hover {
+        color: red;
+        cursor: pointer;
+      }
+      .tt1 h2:active {
+        color: #fff;
+        background-color: #000;
+      }
+      .tt1 li:first-child {
+        background-color: red;
+      }
+      .tt1 li:last-child {
+        background-color: #ccc;
+        color: royalblue;
+      }
+      .tt2::before {
+        content: ""; /*Cần thêm vào để element giả có thể tồn tại*/
+        display: block; /*cần tạo dạng khối*/
+        width: 50%;
+        height: 20px;
+        background-color: red;
+      }
+      .tt2::after {
+        content: ""; /*Cần thêm vào để element giả có thể tồn tại*/
+        display: block; /*cần tạo dạng khối*/
+        width: 50%;
+        height: 20px;
+        background-color: #000;
+      }
+      .tt2 h1::first-letter {
+        font-size: 150px;
+        color: red;
+      }
+      .tt2 h1::first-line {
+        color: blue;
+      }
+      .tt2 h1::selection {
+        color: rgb(217, 230, 40);
+        background-color: burlywood;
+      }
+
+      .tt3 h1 {
+        color: var(--mauchu);
+      }
+      .tt3 {
+        height: 500px;
+      }
+      a::after {
+        content: "(" attr(href) ")";
+      }
+      /* footer::before {
+        padding-top: 20px;
+        content: "jijiji";
+        display: block;
+      } */
+      #footer-content {
+        width: 1170px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .top-footer {
+        width: 100%;
+      }
+      .top-footer-content {
+        width: 25%;
+        float: left;
+      }
+      .top-footer-content h2 {
+        text-transform: uppercase;
+      }
+      .top-footer-content ul a {
+        text-decoration: none;
+      }
+      .top-footer-content .bct img {
+        width: 100%;
+      }
+      .bot-footer {
+        height: 50px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+      }
+      .bot-footer img {
+        height: 100%;
+        /* float: left; */
+        padding-left: 0px;
+      }
+      .bot-footer .copyright {
+        line-height: 50px;
+        font-size: 16px;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <div class="tt1">
+        <h1>Pseudo class: Lớp giả</h1>
+        <h2>Dùng active</h2>
+        <ul>
+          <li>:root</li>
+          <!-- cặp thẻ bao trùm toàn bộ tài liệu(thẻ html) -->
+          <li>:hover</li>
+          <!-- chỉ chuột vào sẽ thay đổi -->
+          <li>:active</li>
+          <!-- Bấm và giữ chuột thì mới thấy sự thay đổi -->
+          <li>:first-child</li>
+          <li>:last-child</li>
+        </ul>
+      </div>
+      <div class="tt2">
+        <h1>
+          Pseudo Elements <br />
+          phần tử giả
+        </h1>
+        <ul>
+          <li>::before</li>
+          <li>::after</li>
+          <li>::first-letter</li>
+          <li>::first-line</li>
+          <li>::selection</li>
+          <li class="ti-hand-open"></li>
+          <!-- Chọn phần tử bằng thao tác như double-click vào nội dung 
+            hoặc giữ chuột trái để chọn nội dung, bôi đen toàn bộ nội dung
+            nếu không css chính xác cho thẻ nào, thì sẽ áp dụng cho toàn văn bản 
+ -->
+        </ul>
+      </div>
+      <div class="tt3">
+        <h1>Đặt biến trong CSS</h1>
+        <p>
+          Cần tạo css :root ở đầu. Mục đích để rút ngắn code và dễ chỉnh sửa
+          tổng thể sau này. <br />
+          CSS functions
+        </p>
+        <a href="https://teky.edu.vn/">TEKY</a>
+      </div>
+    </div>
+    <hr />
+    <footer>
+      <div id="footer-content">
+        <div class="top-footer">
+          <div class="top-footer-content">
+            <h2>Về teky</h2>
+            <ul>
+              <li><a href="#">Giới thiệu</a></li>
+              <li><a href="#">Đội ngũ lãnh đạo</a></li>
+              <li><a href="#">Đội ngũ giảng viên</a></li>
+              <li><a href="#">Báo chí nói về TEKY</a></li>
+              <li><a href="#">Giải thưởng</a></li>
+              <li><a href="#">Sự kiện</a></li>
+              <li><a href="#">Tuyển dụng</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Liên hệ</a></li>
+            </ul>
+          </div>
+          <div class="top-footer-content">
+            <h2>Chương trình học</h2>
+            <ul>
+              <li><a href="#">Lập trình & Phát triển ứng dụng</a></li>
+              <li><a href="#">Robot & Điện tử tự động</a></li>
+              <li><a href="#">3D & Truyền thông đa phương tiện</a></li>
+              <li><a href="#">Khóa học Online</a></li>
+            </ul>
+          </div>
+          <div class="top-footer-content">
+            <h2>Chính sách & quy định chung</h2>
+            <ul>
+              <li><a href="#">Chính sách, Quy định chung</a></li>
+              <li><a href="#">Quy trình cung ứng dịch vụ</a></li>
+              <li><a href="#">Phương thức thanh toán</a></li>
+              <li><a href="#">Chính sách bảo vệ thông tin</a></li>
+            </ul>
+          </div>
+          <div class="top-footer-content">
+            <h2>GIỜ HOẠT ĐỘNG</h2>
+            <div>
+              <ul>
+                <li>THỨ 3 đến THỨ 6: 08:30 - 20:30</li>
+                <li>THỨ 7 - Chủ Nhật: 08:30 - 20:30</li>
+                <li>THỨ 2: Không làm việc</li>
+              </ul>
+            </div>
+            <h2>Công ty cổ phần công nghệ & sáng tạo trẻ teky holdings</h2>
+            <p>
+              Mã số thuế: 0108434588 do Phòng Đăng ký kinh doanh thuộc sở Kế
+              hoạch và Đầu tư cấp lần đầu ngày 14/09/2018
+            </p>
+            <p>
+              Địa chỉ: Tầng 5, tòa nhà MAC Plaza, số 10 Trần Phú, Mộ Lao, Hà
+              Đông, Hà Nội, Việt Nam
+            </p>
+            <p>Đại diện theo pháp luật: Đào Lan Hương</p>
+            <br />
+            <h2>Kết nối với chúng tôi</h2>
+            <div class="icon">
+              <img src="" alt="" />
+            </div>
+            <div class="bct">
+              <img src="./bct.png" alt="" />
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div class="bot-footer">
+          <img
+            src="./logo-teky.png"
+            class="img"
+            alt=""
+            style="display: inline-block"
+          />
+          <!-- <div class="bentrai">Test thử bên lề trái</div> -->
+          <div class="copyright">
+            Copyright © 2016- 2022 TEKY Academy. All Rights Reserved
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
